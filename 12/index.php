@@ -21,13 +21,10 @@
         $isAuthenticated = false;
 
         if (file_exists($file)) {
-            $lines = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-            foreach ($lines as $line) {
-                list($storedUser, $storedPass) = explode(',', $line);
-                if ($username === trim($storedUser) && $password === trim($storedPass)) {
-                    $isAuthenticated = true;
-                    break;
-                }
+            $content = trim(file_get_contents($file));
+            list($storedUser, $storedPass) = explode(',', $content);
+            if ($username === trim($storedUser) && $password === trim($storedPass)) {
+                $isAuthenticated = true;
             }
         }
 

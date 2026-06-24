@@ -1,3 +1,1 @@
 admin,password123
-student,stu123
-teacher,teach456
