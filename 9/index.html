@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Registration Form Validation</title>
+    <style type="text/css">
+        body { font-family: Arial, sans-serif; }
+        .form-box { width: 400px; padding: 20px; border: 1px solid #000; margin: 20px auto; background-color: #f2f2f2; }
+        .form-box div { margin-bottom: 10px; }
+        label { display: inline-block; width: 100px; }
+        input[type="text"], input[type="password"] { width: 250px; }
+        .error { color: red; font-size: 12px; margin-left: 105px; display: block; }
+    </style>
+    <script type="text/javascript">
+        // <![CDATA[
+        function validateForm() {
+            var userId = document.getElementById("userId").value;
+            var name = document.getElementById("name").value;
+            var password = document.getElementById("password").value;
+            var email = document.getElementById("email").value;
+
+            // Reset errors
+            document.getElementById("userIdErr").innerHTML = "";
+            document.getElementById("nameErr").innerHTML = "";
+            document.getElementById("passwordErr").innerHTML = "";
+            document.getElementById("emailErr").innerHTML = "";
+
+            var isValid = true;
+
+            // User ID Validation: length 5 to 12
+            if (userId.length < 5 || userId.length > 12) {
+                document.getElementById("userIdErr").innerHTML = "User ID must be between 5 to 12 characters.";
+                isValid = false;
+            }
+
+            // Name Validation: only alphabets, length >= 15
+            var namePattern = /^[A-Za-z\s]+$/;
+            if (!namePattern.test(name) || name.replace(/\s/g, '').length < 15) {
+                document.getElementById("nameErr").innerHTML = "Name must contain only alphabets and be at least 15 characters long.";
+                isValid = false;
+            }
+
+            // Password Validation: 8 chars, 1 uppercase, 1 special, alphanumeric
+            var pwdPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8}$/;
+            if (!pwdPattern.test(password)) {
+                document.getElementById("passwordErr").innerHTML = "Password must be exactly 8 chars, including 1 uppercase, 1 number, and 1 special character.";
+                isValid = false;
+            }
+
+            // Email Validation
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById("emailErr").innerHTML = "Please enter a valid email address.";
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert("Registration Successful!");
+            }
+        }
+        // ]]>
+    </script>
+</head>
+<body>
+
+<div class="form-box">
+    <h3>Registration Page</h3>
+    <div>
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId" />
+        <span class="error" id="userIdErr"></span>
+    </div>
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" />
+        <span class="error" id="nameErr"></span>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" />
+        <span class="error" id="passwordErr"></span>
+    </div>
+    <div>
+        <label for="email">E-mail:</label>
+        <input type="text" id="email" />
+        <span class="error" id="emailErr"></span>
+    </div>
+    <div>
+        <button type="button" onclick="validateForm()">Register</button>
+    </div>
+</div>
+
+</body>
+</html>
