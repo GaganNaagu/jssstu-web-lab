@@ -1,0 +1,22 @@
+/* External CSS for Lab 6 */
+body {
+    background-color: #e6f2ff; /* Attractive background color */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 30px auto;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.highlight-text {
+    color: #ff6600; /* Text color */
+    font-weight: bold;
+}
