@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Department Timetable</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://upload.wikimedia.org/wikipedia/en/4/4c/JSS_Science_and_Technology_University_logo.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: 300px;
+            /* Add some transparency to the background so table is readable */
+            background-color: rgba(255, 255, 255, 0.9);
+            background-blend-mode: overlay;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        th, td {
+            border: 2px solid #333;
+            padding: 10px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        header, footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>JSS Science and Technology University</h1>
+    <h2>Department of Computer Science and Engineering</h2>
+    <h3>6th Semester Timetable</h3>
+</header>
+
+<div class="container">
+    <table>
+        <tr>
+            <th>Time / Day</th>
+            <th>9:00 - 10:00</th>
+            <th>10:00 - 11:00</th>
+            <th>11:00 - 11:30</th>
+            <th>11:30 - 12:30</th>
+            <th>12:30 - 1:30</th>
+            <th>1:30 - 2:30</th>
+            <th>2:30 - 4:30</th>
+        </tr>
+        <tr>
+            <th>Monday</th>
+            <td>Web Tech (WT)</td>
+            <td>Software Eng (SE)</td>
+            <td rowspan="6"><b>B<br>R<br>E<br>A<br>K</b></td>
+            <td>Machine Learning (ML)</td>
+            <td>Computer Networks (CN)</td>
+            <td rowspan="6"><b>L<br>U<br>N<br>C<br>H</b></td>
+            <td colspan="2">Web Tech Lab</td>
+        </tr>
+        <tr>
+            <th>Tuesday</th>
+            <td>CN</td>
+            <td>WT</td>
+            <td>SE</td>
+            <td>ML</td>
+            <td colspan="2">CN Lab</td>
+        </tr>
+        <tr>
+            <th>Wednesday</th>
+            <td>ML</td>
+            <td>CN</td>
+            <td>WT</td>
+            <td>SE</td>
+            <td colspan="2">Mini Project</td>
+        </tr>
+        <tr>
+            <th>Thursday</th>
+            <td>SE</td>
+            <td>ML</td>
+            <td>CN</td>
+            <td>WT</td>
+            <td colspan="2">Library</td>
+        </tr>
+        <tr>
+            <th>Friday</th>
+            <td>Elective 1</td>
+            <td>Elective 2</td>
+            <td>WT</td>
+            <td>SE</td>
+            <td colspan="2">Sports</td>
+        </tr>
+        <tr>
+            <th>Saturday</th>
+            <td colspan="2">Placement Training</td>
+            <td colspan="2">Seminars</td>
+            <td colspan="2">Activities</td>
+        </tr>
+    </table>
+
+    <h3>Course Details and Faculty</h3>
+    <ul>
+        <li><b>WT:</b> Web Technology - <a href="#">Prof. X</a></li>
+        <li><b>SE:</b> Software Engineering - <a href="#">Prof. Y</a></li>
+        <li><b>ML:</b> Machine Learning - <a href="#">Prof. Z</a></li>
+        <li><b>CN:</b> Computer Networks - <a href="#">Prof. A</a></li>
+    </ul>
+</div>
+
+<footer>
+    <p>&copy; 2026 JSS STU. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

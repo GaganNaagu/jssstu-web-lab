@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Feedback Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .form-group { margin-bottom: 15px; }
+        label { font-weight: bold; display: block; margin-bottom: 5px; }
+        input[type="text"], textarea, select { width: 100%; max-width: 400px; padding: 8px; }
+    </style>
+</head>
+<body>
+
+    <h2>Student Feedback Form</h2>
+    
+    <form action="#" method="post">
+        <div class="form-group">
+            <label>Student Name:</label>
+            <input type="text" name="student_name" required>
+        </div>
+
+        <div class="form-group">
+            <label>USN (University Seat Number):</label>
+            <input type="text" name="usn" required>
+        </div>
+
+        <div class="form-group">
+            <label>Semester:</label>
+            <select name="semester">
+                <option value="1">1st Semester</option>
+                <option value="2">2nd Semester</option>
+                <option value="3">3rd Semester</option>
+                <option value="4">4th Semester</option>
+                <option value="5">5th Semester</option>
+                <option value="6">6th Semester</option>
+                <option value="7">7th Semester</option>
+                <option value="8">8th Semester</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Overall Satisfaction:</label>
+            <input type="radio" name="satisfaction" value="Excellent" required> Excellent
+            <input type="radio" name="satisfaction" value="Good"> Good
+            <input type="radio" name="satisfaction" value="Average"> Average
+            <input type="radio" name="satisfaction" value="Poor"> Poor
+        </div>
+
+        <div class="form-group">
+            <label>Facilities used:</label>
+            <input type="checkbox" name="facility" value="Library"> Library
+            <input type="checkbox" name="facility" value="Labs"> Computer Labs
+            <input type="checkbox" name="facility" value="Sports"> Sports
+            <input type="checkbox" name="facility" value="Hostel"> Hostel
+        </div>
+
+        <div class="form-group">
+            <label>Any other feedback:</label>
+            <textarea name="feedback" rows="4"></textarea>
+        </div>
+
+        <button type="submit">Submit Feedback</button>
+        <button type="reset">Reset Form</button>
+    </form>
+
+</body>
+</html>
