@@ -1,70 +1,101 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>CSS Properties Demo</title>
     <style>
-        /* ii. Control the repetition of image */
+
         body {
-            background-image: url('https://via.placeholder.com/100/eeeeee/cccccc?text=BG');
-            background-repeat: repeat-x; /* Repeats horizontally only */
+            background-image: url('https:
+            background-repeat: repeat;
             background-position: top left;
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 120px 20px 20px 20px; /* Leave space for bg image */
+            padding: 120px 20px 20px 20px;
         }
 
-        /* i. Demonstrate different font styles */
-        .font-demo-1 { font-style: normal; font-weight: bold; font-family: "Courier New", Courier, monospace; }
-        .font-demo-2 { font-style: italic; font-weight: normal; font-family: 'Times New Roman', Times, serif; font-size: 20px; }
-        .font-demo-3 { font-variant: small-caps; font-weight: 900; font-family: Arial, sans-serif; }
+        .font-demo-1 {
+            font-style: normal;
+            font-weight: bold;
+            font-family: monospace;
+        }
 
-        /* iii. Define style for links */
-        a:link { color: #0000FF; text-decoration: none; }    /* unvisited link */
-        a:visited { color: #800080; text-decoration: none; } /* visited link */
-        a:hover { color: #FF0000; text-decoration: underline; }  /* mouse over link */
-        a:active { color: #00FF00; text-decoration: underline; } /* selected link */
+        .font-demo-2 {
+            font-style: italic;
+            font-weight: bold;
+            font-family: serif;
+        }
 
-        /* iv. Demonstrate Element visibility property */
-        .hidden-elem { visibility: hidden; }
-        .visible-elem { visibility: visible; color: green; }
+        .font-demo-3 {
+            font-variant: small-caps;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+
+        a:link {
+            color: blue;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: purple;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: red;
+            text-decoration: underline;
+        }
+
+        a:active {
+            color: green;
+            text-decoration: underline;
+        }
+
+        .hidden-elem {
+            visibility: hidden;
+        }
 
         .container {
-            background-color: white;
             padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            border: 1px solid black;
+            background-color: #9EEEB0;
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h2>1. Font Styles Demonstration</h2>
-    <p class="font-demo-1">This text is bold and monospace.</p>
-    <p class="font-demo-2">This text is italic and uses Times New Roman.</p>
-    <p class="font-demo-3">This Text Uses Small-Caps and is Extra Bold.</p>
+    <div class="container">
+        <h2>1. Font Styles Demonstration</h2>
+        <p class="font-demo-1">This text is bold and monospace.</p>
+        <p class="font-demo-2">This text is italic and uses serif.</p>
+        <p class="font-demo-3">This Text Uses Small-Caps.</p>
 
-    <hr>
+        <hr>
 
-    <h2>2. Background Repeat Demonstration</h2>
-    <p>Look at the top of the page. The background image repeats only horizontally (`repeat-x`).</p>
+        <h2>2. Background Repeat Demonstration</h2>
+        <p>Background image repeats.</p>
 
-    <hr>
+        <hr>
 
-    <h2>3. Link Styles Demonstration</h2>
-    <p><a href="https://example.com" target="_blank">Click here to visit Example.com</a> (Hover to see red, click to see green)</p>
-    <p><a href="#dummy-link">This is a dummy link</a></p>
+        <h2>3. Link Styles Demonstration</h2>
+        <p><a href="https:
+        <p><a href="#dummy-link">This is a dummy link</a></p>
 
-    <hr>
+        <hr>
 
-    <h2>4. Element Visibility Demonstration</h2>
-    <p>Below is a visible element:</p>
-    <div class="visible-elem">I am a visible element.</div>
-    
-    <p>Below is a hidden element (it still takes up space):</p>
-    <div class="hidden-elem">I am hidden! You can't see me, but I take up space.</div>
-    <p>Above is the hidden element's space.</p>
-</div>
+        <h2>4. Element Visibility Demonstration</h2>
+        <p id="toggleText">Watch me disappear and reappear! Notice how I still take up space when hidden.</p>
+        <button onclick="toggleVisibility()">Toggle Visibility</button>
+        <p>This text is below the toggled element.</p>
+
+        <script>
+            function toggleVisibility() {
+                document.getElementById("toggleText").classList.toggle("hidden-elem");
+            }
+        </script>
+    </div>
 
 </body>
+
 </html>

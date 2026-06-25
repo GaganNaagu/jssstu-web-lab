@@ -1,126 +1,232 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Department Timetable</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-image: url('https://upload.wikimedia.org/wikipedia/en/4/4c/JSS_Science_and_Technology_University_logo.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-attachment: fixed;
-            background-size: 300px;
-            /* Add some transparency to the background so table is readable */
-            background-color: rgba(255, 255, 255, 0.9);
-            background-blend-mode: overlay;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 14px;
+            margin: 40px;
+            color: black;
         }
+
+        .header-info {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+
         table {
-            width: 90%;
-            margin: 20px auto;
+            width: 100%;
             border-collapse: collapse;
+            margin-bottom: 40px;
             text-align: center;
         }
-        th, td {
-            border: 2px solid #333;
-            padding: 10px;
+
+        th,
+        td {
+            border: 2px solid black;
+            padding: 8px 5px;
         }
+
         th {
-            background-color: #f2f2f2;
+            font-weight: bold;
         }
-        header, footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #333;
-            color: white;
+
+        .course-table {
+            width: 90%;
+            margin: 0 auto;
         }
-        .container {
-            width: 80%;
-            margin: auto;
+
+        .course-table th,
+        .course-table td {
+            text-align: left;
+            padding: 8px 10px;
+        }
+
+        .bold {
+            font-weight: bold;
         }
     </style>
 </head>
+
 <body>
 
-<header>
-    <h1>JSS Science and Technology University</h1>
-    <h2>Department of Computer Science and Engineering</h2>
-    <h3>6th Semester Timetable</h3>
-</header>
+    <div class="header-info">
+        <span>Semester: VI</span>
+        <span>Section: 'B'</span>
+        <span>Room. No.: CS 201/ CS102/ CS103</span>
+    </div>
 
-<div class="container">
     <table>
         <tr>
-            <th>Time / Day</th>
-            <th>9:00 - 10:00</th>
-            <th>10:00 - 11:00</th>
-            <th>11:00 - 11:30</th>
-            <th>11:30 - 12:30</th>
-            <th>12:30 - 1:30</th>
-            <th>1:30 - 2:30</th>
-            <th>2:30 - 4:30</th>
+            <th>DAY</th>
+            <th>7:30-8:30</th>
+            <th>8:30-9:30</th>
+            <th>9:30-<br>10:30</th>
+            <th>10:30-<br>11:00</th>
+            <th>11:00-11:50</th>
+            <th>11:50-<br>12:40</th>
+            <th>12:40-<br>1:30</th>
+            <th>1:30-<br>2:30</th>
+            <th>2:30-<br>3:30</th>
+            <th>3:30-<br>4:30</th>
+            <th>4:30-<br>5:30</th>
         </tr>
         <tr>
-            <th>Monday</th>
-            <td>Web Tech (WT)</td>
-            <td>Software Eng (SE)</td>
-            <td rowspan="6"><b>B<br>R<br>E<br>A<br>K</b></td>
-            <td>Machine Learning (ML)</td>
-            <td>Computer Networks (CN)</td>
-            <td rowspan="6"><b>L<br>U<br>N<br>C<br>H</b></td>
-            <td colspan="2">Web Tech Lab</td>
+            <th class="bold">MON</th>
+            <td></td>
+            <td>22CS641<br>/22CS643</td>
+            <td class="bold">OE - II</td>
+            <td rowspan="6" class="bold">B<br><br>R<br><br>E<br><br>A<br><br>K</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td rowspan="6" class="bold">B<br><br>R<br><br>E<br><br>A<br><br>K</td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
-            <th>Tuesday</th>
-            <td>CN</td>
-            <td>WT</td>
-            <td>SE</td>
-            <td>ML</td>
-            <td colspan="2">CN Lab</td>
+            <th class="bold">TUE</th>
+            <td></td>
+            <td></td>
+            <td class="bold">OE - III</td>
+            <td>22CS620<br>[CS 103]</td>
+            <td>22CS610<br>[CS 103]</td>
+            <td>22CS630<br>[CS 103]</td>
+            <td colspan="2" class="bold">22CS630P B2<br>HWL</td>
+            <td></td>
         </tr>
         <tr>
-            <th>Wednesday</th>
-            <td>ML</td>
-            <td>CN</td>
-            <td>WT</td>
-            <td>SE</td>
-            <td colspan="2">Mini Project</td>
+            <th class="bold">WED</th>
+            <td></td>
+            <td>22CS641<br>/22CS643</td>
+            <td class="bold">OE - II</td>
+            <td>22CS620<br>[CS 201]</td>
+            <td>22CS610<br>[CS 201]</td>
+            <td>22HU612<br>[CS 201]</td>
+            <td colspan="3" class="bold" style="padding: 0;">
+                <div style="border-bottom: 2px solid black; padding: 8px;">22CS67L B2 SWL 2</div>
+                <div style="padding: 8px;">22CS68L B1 SWL 1</div>
+            </td>
         </tr>
         <tr>
-            <th>Thursday</th>
-            <td>SE</td>
-            <td>ML</td>
-            <td>CN</td>
-            <td>WT</td>
-            <td colspan="2">Library</td>
+            <th class="bold">THR</th>
+            <td></td>
+            <td></td>
+            <td class="bold">OE - III</td>
+            <td>22CS610<br>[CS 201]</td>
+            <td>22HU612<br>[CS 201]</td>
+            <td>22CS630<br>[CS 201]</td>
+            <td colspan="3" class="bold" style="padding: 0;">
+                <div style="border-bottom: 2px solid black; padding: 8px;">22CS67L B1 SWL 2</div>
+                <div style="padding: 8px;">22CS68L B2 SWL 1</div>
+            </td>
         </tr>
         <tr>
-            <th>Friday</th>
-            <td>Elective 1</td>
-            <td>Elective 2</td>
-            <td>WT</td>
-            <td>SE</td>
-            <td colspan="2">Sports</td>
+            <th class="bold">FRI</th>
+            <td></td>
+            <td>22CS641<br>/22CS643</td>
+            <td class="bold">OE - II</td>
+            <td>22CS610<br>[CS 102]</td>
+            <td>22CS620<br>[CS 102]</td>
+            <td>22CS630<br>[CS 102]</td>
+            <td colspan="3" class="bold">22CS630P B1<br>HWL</td>
         </tr>
         <tr>
-            <th>Saturday</th>
-            <td colspan="2">Placement Training</td>
-            <td colspan="2">Seminars</td>
-            <td colspan="2">Activities</td>
+            <th class="bold">SAT</th>
+            <td></td>
+            <td></td>
+            <td class="bold">OE - III</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
     </table>
 
-    <h3>Course Details and Faculty</h3>
-    <ul>
-        <li><b>WT:</b> Web Technology - <a href="#">Prof. X</a></li>
-        <li><b>SE:</b> Software Engineering - <a href="#">Prof. Y</a></li>
-        <li><b>ML:</b> Machine Learning - <a href="#">Prof. Z</a></li>
-        <li><b>CN:</b> Computer Networks - <a href="#">Prof. A</a></li>
-    </ul>
-</div>
-
-<footer>
-    <p>&copy; 2026 JSS STU. All rights reserved.</p>
-</footer>
+    <table class="course-table">
+        <tr>
+            <th style="text-align: center;">Sub. Code</th>
+            <th style="text-align: center;">Subject Title</th>
+            <th style="text-align: center;">Credits</th>
+            <th style="text-align: center;">Course Instructor</th>
+        </tr>
+        <tr>
+            <td>22CS610</td>
+            <td>Machine Learning</td>
+            <td style="text-align: center;">4</td>
+            <td>Dr. Rakshitha R</td>
+        </tr>
+        <tr>
+            <td>22CS620</td>
+            <td>Web Technology</td>
+            <td style="text-align: center;">3</td>
+            <td>Dr. Chethan B K</td>
+        </tr>
+        <tr>
+            <td>22CS630</td>
+            <td>Internet of Things</td>
+            <td style="text-align: center;">3</td>
+            <td>Dr. Ramkrishna Hegde</td>
+        </tr>
+        <tr>
+            <td>22CS641 /22CS643</td>
+            <td>Cloud Computing / Cyber Security</td>
+            <td style="text-align: center;">3</td>
+            <td>Dr. Anusuya MA/ Prof. Shwetha S/ Prof. Swetha PM / Prof. Rakshith P/ Prof. Pooja JN</td>
+        </tr>
+        <tr>
+            <td>22CS652</td>
+            <td>Python Programming (OE-II)</td>
+            <td style="text-align: center;">3</td>
+            <td>Dr. Manimala S</td>
+        </tr>
+        <tr>
+            <td>22CS662</td>
+            <td>Introduction to Machine Learning (OE-III)</td>
+            <td style="text-align: center;">3</td>
+            <td>Dr. Rekha K S</td>
+        </tr>
+        <tr>
+            <td>22CS67L</td>
+            <td>Machine Learning Laboratory</td>
+            <td style="text-align: center;">1.5</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>22CS68L</td>
+            <td>Web Technology Laboratory</td>
+            <td style="text-align: center;">1.5</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>22CS630P</td>
+            <td>Internet of Things Practical</td>
+            <td style="text-align: center;">1</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>22HU612</td>
+            <td>Constitution of India and Professional Ethics</td>
+            <td style="text-align: center;">0</td>
+            <td>Prof. Sneha Jagdish</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: right;" class="bold">Total Credits:</td>
+            <td style="text-align: center;" class="bold">25</td>
+            <td></td>
+        </tr>
+    </table>
 
 </body>
+
 </html>

@@ -1,103 +1,143 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Form Validation & Display</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 30px; }
-        .form-container { width: 350px; padding: 20px; border: 1px solid #ccc; background-color: #fafafa; }
-        .form-group { margin-bottom: 10px; }
-        label { display: inline-block; width: 100px; font-weight: bold; }
-        input[type="text"], input[type="email"] { width: 200px; padding: 5px; }
-        .error { color: red; font-size: 12px; margin-left: 105px; display: block; }
-        #displayArea { width: 100%; height: 100px; margin-top: 15px; }
+        body {
+            margin: 30px;
+            text-align: center;
+
+        }
+
+        .form-container {
+            width: 350px;
+            padding: 20px;
+            border: 1px solid black;
+            display: inline-block;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 200px;
+            padding: 5px;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-left: 105px;
+            display: block;
+        }
+
+        #displayArea {
+            width: 100%;
+            height: 100px;
+            margin-top: 15px;
+        }
     </style>
 </head>
+
 <body>
 
-<div class="form-container">
-    <h2>User Information Form</h2>
-    <div class="form-group">
-        <label>Name:</label>
-        <input type="text" id="name" placeholder="Enter Name">
-        <span class="error" id="nameErr"></span>
-    </div>
-    <div class="form-group">
-        <label>Email:</label>
-        <input type="email" id="email" placeholder="Enter Email">
-        <span class="error" id="emailErr"></span>
-    </div>
-    <div class="form-group">
-        <label>Mobile No:</label>
-        <input type="text" id="mobile" placeholder="10 digit number">
-        <span class="error" id="mobileErr"></span>
-    </div>
-    <div class="form-group">
-        <label>Gender:</label>
-        <input type="radio" name="gender" value="Male"> Male
-        <input type="radio" name="gender" value="Female"> Female
-        <span class="error" id="genderErr"></span>
-    </div>
-    <div class="form-group">
-        <label>Fav Color:</label>
-        <input type="color" id="color" value="#ff0000">
-        <span class="error" id="colorErr"></span>
-    </div>
-    
-    <button onclick="validateAndDisplay()">Submit</button>
+    <div class="form-container">
+        <h2>User Information Form</h2>
+        <div class="form-group">
+            <label>Name:</label>
+            <input type="text" id="name" placeholder="Enter Name">
+            <span class="error" id="nameErr"></span>
+        </div>
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" id="email" placeholder="Enter Email">
+            <span class="error" id="emailErr"></span>
+        </div>
+        <div class="form-group">
+            <label>Mobile No:</label>
+            <input type="text" id="mobile" placeholder="10 digit number">
+            <span class="error" id="mobileErr"></span>
+        </div>
+        <div class="form-group">
+            <label>Gender:</label>
+            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" name="gender" value="Female"> Female
+            <span class="error" id="genderErr"></span>
+        </div>
+        <div class="form-group">
+            <label>Fav Color:</label>
+            <input type="color" id="color" value="#000000">
+            <span class="error" id="colorErr"></span>
+        </div>
 
-    <h3>Combined Information:</h3>
-    <textarea id="displayArea" readonly></textarea>
-</div>
+        <button onclick="validateAndDisplay()">Submit</button>
 
-<script>
-    function validateAndDisplay() {
-        let name = document.getElementById('name').value.trim();
-        let email = document.getElementById('email').value.trim();
-        let mobile = document.getElementById('mobile').value.trim();
-        let color = document.getElementById('color').value.trim();
-        
-        let genderElems = document.getElementsByName('gender');
-        let gender = "";
-        for (let i = 0; i < genderElems.length; i++) {
-            if (genderElems[i].checked) {
-                gender = genderElems[i].value;
-                break;
+        <h3>Combined Information:</h3>
+        <textarea id="displayArea" readonly></textarea>
+    </div>
+
+    <script>
+        function validateAndDisplay() {
+            let name = document.getElementById('name').value.trim();
+            let email = document.getElementById('email').value.trim();
+            let mobile = document.getElementById('mobile').value.trim();
+            let color = document.getElementById('color').value.trim();
+
+            let genderElems = document.getElementsByName('gender');
+            let gender = "";
+            for (let i = 0; i < genderElems.length; i++) {
+                if (genderElems[i].checked) {
+                    gender = genderElems[i].value;
+                    break;
+                }
+            }
+
+            document.getElementById('nameErr').innerText = "";
+            document.getElementById('emailErr').innerText = "";
+            document.getElementById('mobileErr').innerText = "";
+            document.getElementById('genderErr').innerText = "";
+            document.getElementById('colorErr').innerText = "";
+
+            let isValid = true;
+
+            if (name === "") { document.getElementById('nameErr').innerText = "Name is required."; isValid = false; }
+
+            if (email === "" || !email.includes("@") || !email.includes(".")) { 
+                document.getElementById('emailErr').innerText = "Valid email is required."; 
+                isValid = false; 
+            }
+
+            if (mobile.length !== 10 || isNaN(mobile)) { 
+                document.getElementById('mobileErr').innerText = "Enter valid 10-digit mobile."; 
+                isValid = false; 
+            }
+
+            if (gender === "") { document.getElementById('genderErr').innerText = "Select a gender."; isValid = false; }
+
+            if (color === "") { document.getElementById('colorErr').innerText = "Color is required."; isValid = false; }
+
+            if (isValid) {
+                let combinedInfo = "Name: " + name + "\n" +
+                    "Email: " + email + "\n" +
+                    "Mobile: " + mobile + "\n" +
+                    "Gender: " + gender + "\n" +
+                    "Favorite Color: " + color;
+                document.getElementById('displayArea').value = combinedInfo;
+            } else {
+                document.getElementById('displayArea').value = "";
             }
         }
-
-        // Reset errors
-        document.getElementById('nameErr').innerText = "";
-        document.getElementById('emailErr').innerText = "";
-        document.getElementById('mobileErr').innerText = "";
-        document.getElementById('genderErr').innerText = "";
-        document.getElementById('colorErr').innerText = "";
-
-        let isValid = true;
-
-        if (name === "") { document.getElementById('nameErr').innerText = "Name is required."; isValid = false; }
-        
-        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) { document.getElementById('emailErr').innerText = "Valid email is required."; isValid = false; }
-        
-        let mobilePattern = /^\d{10}$/;
-        if (!mobilePattern.test(mobile)) { document.getElementById('mobileErr').innerText = "Enter valid 10-digit mobile."; isValid = false; }
-        
-        if (gender === "") { document.getElementById('genderErr').innerText = "Select a gender."; isValid = false; }
-        
-        if (color === "") { document.getElementById('colorErr').innerText = "Color is required."; isValid = false; }
-
-        if (isValid) {
-            let combinedInfo = "Name: " + name + "\n" +
-                               "Email: " + email + "\n" +
-                               "Mobile: " + mobile + "\n" +
-                               "Gender: " + gender + "\n" +
-                               "Favorite Color: " + color;
-            document.getElementById('displayArea').value = combinedInfo;
-        } else {
-            document.getElementById('displayArea').value = "";
-        }
-    }
-</script>
+    </script>
 
 </body>
+
 </html>
